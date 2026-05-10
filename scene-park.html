@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Children 2 – Scene Card Speaking Practice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+
+  <style>
+    :root {
+      --primary: #1976d2;
+      --primary-dark: #0d47a1;
+      --accent: #ffca28;
+      --bg: #f5f5f5;
+      --card-bg: #ffffff;
+      --border-radius: 10px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.12);
+      --text-main: #333;
+      --text-muted: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .app-container {
+      max-width: 960px;
+      width: 100%;
+      margin: 20px;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 20px 24px 24px;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+    }
+
+    .subtitle {
+      margin: 0 0 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .scene-card {
+      border-radius: var(--border-radius);
+      background: #fafafa;
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+    }
+
+    .scene-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .scene-thumb-wrapper {
+      position: relative;
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+    }
+
+    .scene-thumb {
+      width: 100%;
+      display: block;
+    }
+
+    .zoom-label {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+
+    .scene-help {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .instructions {
+      background: #fffde7;
+      border-radius: 8px;
+      padding: 10px 12px;
+      border: 1px solid #fff59d;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    .instructions strong {
+      color: #f57f17;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .question-number {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .grammar-tag {
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    .question-text {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s, transform 0.05s;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: #eeeeee;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #333;
+    }
+
+    .btn-accent:hover {
+      background: #ffb300;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #ccc;
+      color: #555;
+    }
+
+    .btn-outline:hover {
+      background: #f5f5f5;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 80px;
+      resize: vertical;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-size: 0.95rem;
+    }
+
+    .answer-label {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    .ai-feedback {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .ai-feedback.ok {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #c8e6c9;
+    }
+
+    .ai-feedback.error {
+      background: #ffebee;
+      color: #c62828;
+      border: 1px solid #ffcdd2;
+    }
+
+    .answers-panel {
+      margin-top: 10px;
+      border-radius: 8px;
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      padding: 8px 10px;
+      display: none;
+    }
+
+    .answers-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .answers-note {
+      font-size: 0.8rem;
+      color: #8d6e63;
+      margin-bottom: 6px;
+    }
+
+    .answer-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(0,0,0,0.06);
+    }
+
+    .answer-item:last-child {
+      border-bottom: none;
+    }
+
+    .answer-text {
+      font-size: 0.9rem;
+    }
+
+    .nav-row {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-info {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Modal imagen grande */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      background: #000;
+      padding: 8px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .modal-img-wrapper {
+      overflow: auto;
+      max-height: 80vh;
+    }
+
+    .modal-img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      padding: 4px 8px;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-container">
+    <h1>Children 2 – Scene Card</h1>
+    <p class="subtitle">Práctica de speaking con la escena de clase (Cambridge style).</p>
+
+    <div class="layout">
+      <!-- Columna izquierda: escena -->
+      <div>
+        <div class="scene-card">
+          <div class="scene-title">Scene Card</div>
+          <div class="scene-thumb-wrapper" id="sceneThumb">
+            <img src="scene-classroom.png" alt="Classroom scene" class="scene-thumb" />
+            <div class="zoom-label">Pulsa para ampliar</div>
+          </div>
+          <div class="scene-help">
+            Mira bien la imagen. Puedes ampliarla y hacer zoom para responder mejor.
+          </div>
+        </div>
+
+        <div class="instructions">
+          <strong>Cómo usar:</strong> Pulsa <strong>Escuchar</strong> para oír la pregunta.  
+          Escribe tu respuesta o usa el <strong>micrófono</strong>.  
+          Luego pulsa <strong>Evaluar con IA</strong> para una corrección básica, o <strong>Ver respuestas</strong> para ver ejemplos.
+        </div>
+      </div>
+
+      <!-- Columna derecha: pregunta y controles -->
+      <div>
+        <div class="question-header">
+          <div class="question-number" id="questionNumber">Pregunta 1/30</div>
+          <div class="grammar-tag" id="grammarTag">Present Continuous</div>
+        </div>
+
+        <div class="question-text" id="questionText">What is the teacher doing?</div>
+
+        <div class="btn-row">
+          <button class="btn-primary" id="btnListen">🔊 Escuchar</button>
+          <button class="btn-secondary" id="btnShowImage">🖼️ Ver imagen grande</button>
+        </div>
+
+        <div class="answer-label">Escribe tu respuesta en inglés:</div>
+        <textarea id="answerInput" placeholder="Write your answer here..."></textarea>
+
+        <div class="btn-row" style="margin-top: 6px;">
+          <button class="btn-secondary" id="btnMic">🎤 Responder con voz</button>
+          <button class="btn-accent" id="btnEvaluate">🤖 Evaluar con IA</button>
+          <button class="btn-outline" id="btnToggleAnswers">📖 Ver respuestas</button>
+        </div>
+
+        <div class="ai-feedback" id="aiFeedback"></div>
+
+        <div class="answers-panel" id="answersPanel">
+          <div class="answers-title">Posibles respuestas correctas</div>
+          <div class="answers-note">
+            Estas son respuestas modelo. Tu hijo puede decir otras similares que también sean correctas.
+          </div>
+          <div id="answersList"></div>
+        </div>
+
+        <div class="nav-row">
+          <button class="btn-secondary" id="btnPrev">⬅️ Anterior</button>
+          <div class="nav-info">Children 2 – Scene Card · Cambridge style</div>
+          <button class="btn-secondary" id="btnNext">Siguiente ➡️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal imagen grande -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">Cerrar</button>
+      <div class="modal-img-wrapper">
+        <img src="scene-classroom.png" alt="Classroom scene large" class="modal-img" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ============================
+       PREGUNTAS (20 del documento + 10 nuevas)
+       ============================ */
+
+    const questions = [
+      {
+        id: 1,
+        question: "What is the teacher doing?",
+        grammar: "Present Continuous",
+        answers: [
+          "Writing.",
+          "She is writing.",
+          "She is writing on the board.",
+          "She's writing the letter J.",
+          "The teacher is writing some letters."
+        ]
+      },
+      {
+        id: 2,
+        question: "How many flowers are in the vase?",
+        grammar: "There is / There are",
+        answers: [
+          "Six.",
+          "There are four.",
+          "Four yellow flowers.",
+          "I can see four flowers.",
+          "There are four flowers in the blue vase."
+        ]
+      },
+      {
+        id: 3,
+        question: "Where is the black handbag?",
+        grammar: "Prepositions of place",
+        answers: [
+          "On the table.",
+          "On the desk.",
+          "It's on the teacher's desk.",
+          "The bag is on the table.",
+          "Next to the flowers."
+        ]
+      },
+      {
+        id: 4,
+        question: "What color is the boy’s shirt?",
+        grammar: "Colours / Clothes",
+        answers: [
+          "Green.",
+          "It is green.",
+          "He is wearing a green shirt.",
+          "It's a green t-shirt.",
+          "The boy's shirt is green."
+        ]
+      },
+      {
+        id: 5,
+        question: "What is the girl doing?",
+        grammar: "Present Continuous",
+        answers: [
+          "Writing.",
+          "She is writing.",
+          "Writing in a notebook.",
+          "She is sitting and writing.",
+          "She is doing her homework."
+        ]
+      },
+      {
+        id: 6,
+        question: "Where is the red backpack?",
+        grammar: "Prepositions of place",
+        answers: [
+          "On the floor.",
+          "Next to the chair.",
+          "Under the table.",
+          "It's next to the girl.",
+          "The red bag is on the floor."
+        ]
+      },
+      {
+        id: 7,
+        question: "What color is the teacher's hair?",
+        grammar: "Colours / Physical description",
+        answers: [
+          "Orange.",
+          "Red.",
+          "She has orange hair.",
+          "Her hair is orange.",
+          "It's orange."
+        ]
+      },
+      {
+        id: 8,
+        question: "Where is the tennis racket?",
+        grammar: "Prepositions of place",
+        answers: [
+          "Next to the door.",
+          "On the floor.",
+          "Behind the desk.",
+          "It's near the door.",
+          "By the wall."
+        ]
+      },
+      {
+        id: 9,
+        question: "What letters can you see on the board?",
+        grammar: "Alphabet",
+        answers: [
+          "A, B, C...",
+          "Letters.",
+          "From A to J.",
+          "I can see the alphabet.",
+          "The teacher is writing A, B, C, D..."
+        ]
+      },
+      {
+        id: 10,
+        question: "Is the teacher wearing glasses?",
+        grammar: "Yes / No questions",
+        answers: [
+          "Yes.",
+          "Yes, she is.",
+          "Yes, she's wearing glasses.",
+          "Yes, look! Glasses.",
+          "Yes, she has glasses."
+        ]
+      },
+      {
+        id: 11,
+        question: "How many children are there?",
+        grammar: "There is / There are",
+        answers: [
+          "Two.",
+          "There are two.",
+          "A boy and a girl.",
+          "I can see two children.",
+          "There are two students."
+        ]
+      },
+      {
+        id: 12,
+        question: "What color is the rug on the floor?",
+        grammar: "Colours",
+        answers: [
+          "Pink.",
+          "Pink and blue.",
+          "It is pink, white and blue.",
+          "The rug is pink.",
+          "It's a colorful rug."
+        ]
+      },
+      {
+        id: 13,
+        question: "Where is the green pencil?",
+        grammar: "Prepositions of place",
+        answers: [
+          "On the table.",
+          "On the yellow desk.",
+          "It's next to the bag.",
+          "The pencil is on the table.",
+          "On the teacher's desk."
+        ]
+      },
+      {
+        id: 14,
+        question: "What color are the girl’s shoes?",
+        grammar: "Colours / Clothes",
+        answers: [
+          "Black.",
+          "They are black.",
+          "She has black shoes.",
+          "Her shoes are black.",
+          "Dark blue shoes."
+        ]
+      },
+      {
+        id: 15,
+        question: "Is the boy reading or writing?",
+        grammar: "Present Continuous",
+        answers: [
+          "Reading.",
+          "He is reading.",
+          "Reading a book.",
+          "He is reading, not writing.",
+          "The boy is reading a book."
+        ]
+      },
+      {
+        id: 16,
+        question: "Is the door open or closed?",
+        grammar: "To be / Adjectives",
+        answers: [
+          "Closed.",
+          "It is closed.",
+          "The door is closed.",
+          "It's not open.",
+          "Closed, next to the racket."
+        ]
+      },
+           {
+        id: 17,
+        question: "What is on the teacher’s desk?",
+        grammar: "Vocabulary",
+        answers: [
+          "A vase.",
+          "A blue vase with flowers.",
+          "A handbag.",
+          "A tennis racket.",
+          "Flowers and a bag."
+        ]
+      },
+      {
+        id: 18,
+        question: "What is the girl writing?",
+        grammar: "Present Continuous",
+        answers: [
+          "A notebook.",
+          "She is writing in her notebook.",
+          "She is writing something.",
+          "She is writing a text.",
+          "She is doing schoolwork."
+        ]
+      },
+      {
+        id: 19,
+        question: "What color is the teacher’s dress?",
+        grammar: "Colours / Clothes",
+        answers: [
+          "Green.",
+          "It is green.",
+          "She is wearing a green dress.",
+          "Her dress is green.",
+          "A green dress."
+        ]
+      },
+      {
+        id: 20,
+        question: "Where are the books?",
+        grammar: "Prepositions of place",
+        answers: [
+          "On the shelf.",
+          "On the bookshelf.",
+          "Behind the children.",
+          "On the shelves.",
+          "On the bookcase."
+        ]
+      },
+      {
+        id: 21,
+        question: "What is the boy looking at?",
+        grammar: "Present Continuous",
+        answers: [
+          "A book.",
+          "He is looking at a book.",
+          "He is reading.",
+          "He is looking at his notebook.",
+          "He is reading a story."
+        ]
+      },
+      {
+        id: 22,
+        question: "Is the girl happy or sad?",
+        grammar: "Adjectives",
+        answers: [
+          "Happy.",
+          "She looks happy.",
+          "She is happy.",
+          "She is smiling.",
+          "Happy girl."
+        ]
+      },
+      {
+        id: 23,
+        question: "What is the teacher writing?",
+        grammar: "Present Continuous",
+        answers: [
+          "Letters.",
+          "She is writing letters.",
+          "She is writing the alphabet.",
+          "She is writing A, B, C...",
+          "She is writing on the board."
+        ]
+      },
+      {
+        id: 24,
+        question: "What color is the boy’s hair?",
+        grammar: "Physical description",
+        answers: [
+          "Brown.",
+          "He has brown hair.",
+          "His hair is brown.",
+          "Brown hair.",
+          "Light brown hair."
+        ]
+      },
+      {
+        id: 25,
+        question: "Where is the door?",
+        grammar: "Prepositions of place",
+        answers: [
+          "Behind the teacher.",
+          "On the right.",
+          "Next to the bookshelf.",
+          "Behind the children.",
+          "On the right side."
+        ]
+      },
+      {
+        id: 26,
+        question: "What is the girl wearing?",
+        grammar: "Clothes",
+        answers: [
+          "A pink dress.",
+          "She is wearing a pink dress.",
+          "A pink dress and black shoes.",
+          "A dress.",
+          "Pink clothes."
+        ]
+      },
+      {
+        id: 27,
+        question: "Is the teacher standing or sitting?",
+        grammar: "Present Continuous",
+        answers: [
+          "Standing.",
+          "She is standing.",
+          "The teacher is standing.",
+          "Standing next to the board.",
+          "She is standing and writing."
+        ]
+      },
+      {
+        id: 28,
+        question: "What can you see on the floor?",
+        grammar: "Vocabulary",
+        answers: [
+          "A rug.",
+          "A pink and blue rug.",
+          "A colorful rug.",
+          "A rug on the floor.",
+          "A carpet."
+        ]
+      },
+      {
+        id: 29,
+        question: "What is the teacher holding?",
+        grammar: "Present Continuous",
+        answers: [
+          "A piece of chalk.",
+          "She is holding chalk.",
+          "Chalk.",
+          "She is holding something white.",
+          "A chalk stick."
+        ]
+      },
+      {
+        id: 30,
+        question: "What are the children doing?",
+        grammar: "Present Continuous",
+        answers: [
+          "Reading and writing.",
+          "They are reading and writing.",
+          "They are studying.",
+          "They are doing schoolwork.",
+          "They are working at their desks."
+        ]
+      }
+    ];
+    /* ============================
+       LÓGICA DE LA APLICACIÓN
+       ============================ */
+
+    let current = 0;
+
+    const questionNumber = document.getElementById("questionNumber");
+    const grammarTag = document.getElementById("grammarTag");
+    const questionText = document.getElementById("questionText");
+    const answersPanel = document.getElementById("answersPanel");
+    const answersList = document.getElementById("answersList");
+    const aiFeedback = document.getElementById("aiFeedback");
+    const answerInput = document.getElementById("answerInput");
+
+    const btnPrev = document.getElementById("btnPrev");
+    const btnNext = document.getElementById("btnNext");
+    const btnListen = document.getElementById("btnListen");
+    const btnToggleAnswers = document.getElementById("btnToggleAnswers");
+    const btnEvaluate = document.getElementById("btnEvaluate");
+    const btnMic = document.getElementById("btnMic");
+    const btnShowImage = document.getElementById("btnShowImage");
+
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const modalClose = document.getElementById("modalClose");
+
+    /* ============================
+       MOSTRAR PREGUNTA
+       ============================ */
+    function loadQuestion() {
+      const q = questions[current];
+
+      questionNumber.textContent = `Pregunta ${current + 1}/${questions.length}`;
+      grammarTag.textContent = q.grammar;
+      questionText.textContent = q.question;
+
+      // limpiar respuesta y feedback
+      answerInput.value = "";
+      aiFeedback.style.display = "none";
+
+      // cerrar panel de respuestas
+      answersPanel.style.display = "none";
+      answersList.innerHTML = "";
+    }
+
+    loadQuestion();
+
+    /* ============================
+       NAVEGACIÓN
+       ============================ */
+    btnNext.onclick = () => {
+      if (current < questions.length - 1) {
+        current++;
+        loadQuestion();
+      }
+    };
+
+    btnPrev.onclick = () => {
+      if (current > 0) {
+        current--;
+        loadQuestion();
+      }
+    };
+
+    /* ============================
+       ESCUCHAR PREGUNTA (TTS)
+       ============================ */
+    btnListen.onclick = () => {
+      const q = questions[current].question;
+      const utter = new SpeechSynthesisUtterance(q);
+      utter.lang = "en-US";
+      speechSynthesis.speak(utter);
+    };
+
+    /* ============================
+       MOSTRAR RESPUESTAS
+       ============================ */
+    btnToggleAnswers.onclick = () => {
+      if (answersPanel.style.display === "none") {
+        const q = questions[current];
+        answersList.innerHTML = "";
+
+        q.answers.forEach(a => {
+          const div = document.createElement("div");
+          div.className = "answer-item";
+
+          const text = document.createElement("div");
+          text.className = "answer-text";
+          text.textContent = a;
+
+          const audioBtn = document.createElement("button");
+          audioBtn.className = "btn-secondary";
+          audioBtn.textContent = "🔊";
+          audioBtn.onclick = () => {
+            const u = new SpeechSynthesisUtterance(a);
+            u.lang = "en-US";
+            speechSynthesis.speak(u);
+          };
+
+          div.appendChild(text);
+          div.appendChild(audioBtn);
+          answersList.appendChild(div);
+        });
+
+        answersPanel.style.display = "block";
+      } else {
+        answersPanel.style.display = "none";
+      }
+    };
+
+    /* ============================
+       EVALUAR CON IA (versión local)
+       ============================ */
+btnEvaluate.onclick = async () => {
+  const user = answerInput.value.trim();
+  const q = questions[current];
+
+  if (!user) {
+    aiFeedback.textContent = "Escribe una respuesta primero.";
+    aiFeedback.className = "ai-feedback error";
+    aiFeedback.style.display = "block";
+    return;
+  }
+
+  aiFeedback.textContent = "Evaluando con IA...";
+  aiFeedback.className = "ai-feedback";
+  aiFeedback.style.display = "block";
+
+  try {
+    const response = await fetch("https://github.pabgartov.workers.dev/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        question: q.question,
+        answers: q.answers,
+        user: user
+      })
+    });
+
+    const data = await response.json();
+    const text = data.result;
+
+    aiFeedback.textContent = text;
+    aiFeedback.className = text.startsWith("✔️")
+      ? "ai-feedback ok"
+      : "ai-feedback error";
+
+  } catch (err) {
+    aiFeedback.textContent = "Error al conectar con la IA.";
+    aiFeedback.className = "ai-feedback error";
+  }
+
+  aiFeedback.style.display = "block";
+};
+    /* ============================
+       MICRÓFONO (Speech-to-text)
+       ============================ */
+    btnMic.onclick = () => {
+      if (!("webkitSpeechRecognition" in window)) {
+        alert("Tu navegador no soporta reconocimiento de voz.");
+        return;
+      }
+
+      const rec = new webkitSpeechRecognition();
+      rec.lang = "en-US";
+      rec.interimResults = false;
+      rec.maxAlternatives = 1;
+
+      rec.onresult = (event) => {
+        const text = event.results[0][0].transcript;
+        answerInput.value = text;
+      };
+
+      rec.start();
+    };
+
+    /* ============================
+       MODAL IMAGEN GRANDE
+       ============================ */
+    btnShowImage.onclick = () => {
+      modalBackdrop.style.display = "flex";
+    };
+
+    modalClose.onclick = () => {
+      modalBackdrop.style.display = "none";
+    };
+
+    modalBackdrop.onclick = (e) => {
+      if (e.target === modalBackdrop) {
+        modalBackdrop.style.display = "none";
+      }
+    };
+    /* ============================
+       SERVICE WORKER (PWA)
+       ============================ */
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .catch(err => console.log("SW error:", err));
+    }
+
+  </script>
+
+</body>
+</html>
