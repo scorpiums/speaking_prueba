@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Cambridge Speaking Practice – Scene 1</title>
+  <title>Cambridge Speaking Practice – Scene 2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="manifest" href="manifest.webmanifest">
@@ -168,7 +168,7 @@
     
     <header class="app-header">
       <div class="header-thumb-container" id="sceneThumb">
-        <img src="scene_1.png" class="header-thumb" alt="Miniatura">
+        <img src="scene_2.png" class="header-thumb" alt="Miniatura">
         <div class="mini-lupa">🔍</div>
       </div>
       <div class="header-text">
@@ -230,37 +230,36 @@
 
   <script>
     const questions = [
-{ id: 1, question: "What is the teacher doing?", answers: ["She's writing.", "She is writing on the board.", "The teacher is writing on the blackboard", "She's writing some letters.", "The teacher is writing the alphabet"] },
-{ id: 2, question: "How many flowers are in the vase?", answers: ["There are four", "Four yellow flowers", "I can see four flowers", "There are four yellow flowers in the blue vase."] },
-{ id: 3, question: "Where is the black handbag?", answers: ["On the table.", "On the desk.", "It's on the teacher's desk.", "The bag is on the table.", "Next to the flowers."] },
-{ id: 4, question: "What color is the boy’s shirt?", answers: ["Green.", "It is green.", "He is wearing a green shirt.", "She is sitting and writing in her notebook.", "She is doing her homework."] },
-{ id: 5, question: "What is the girl doing?", answers: ["Writing.", "She is writing.", "Writing in a notebook.", "The bag is on the table.", "Next to the flowers."] },
-{ id: 6, question: "Where is the red backpack?", answers: ["On the floor.", "Next to the chair.", "Under the table.", "It's next to the girl.", "The red bag is on the floor."] },
-{ id: 7, question: "What color is the teacher's hair?", answers: ["Brown.", "It's brown.", "The teacher's hair is brown.", "She has brown hair.", "Her hair is brown."] },
-{ id: 8, question: "Where is the tennis racket?", answers: ["On the floor.", "Next to the door.", "The tennis racket is on the floor and next to the door.", "It's near the door.", "Behind the desk."] },
-{ id: 9, question: "What letters can you see on the board?", answers: ["A, B, C, D, E, F, G, H, I, J.", "Letters.", "From A to J.", "I can see the alphabet.", "The teacher is writing A, B, C, D, E, F, G, H, I, J."] },
-{ id: 10, question: "Is the teacher wearing glasses?", answers: ["No.", "No, she isn't.", "No she isn't wearing glasses.", "No, she hasn't glasses."] },
-{ id: 11, question: "How many children are there?", answers: ["Two.", "There are two.", "A boy and a girl.", "I can see two children.", "There are two students."] },
-{ id: 12, question: "What color is the rug on the floor?", answers: ["Pink.", "Pink and blue.", "It is pink and blue.", "The rug is pink.", "It's a pink and blue rug."] },
-{ id: 13, question: "Where is the green pencil?", answers: ["On the table.", "On the yellow desk.", "It's next to the bag.", "The pencil is on the table.", "On the teacher's desk."] },
-{ id: 14, question: "What color are the girl’s shoes?", answers: ["Black / Blue (se ven oscuros).", "They are black.", "She has black shoes.", "Her shoes are black.", "Dark blue shoes."] },
-{ id: 15, question: "Is the boy reading or writing?", answers: ["Reading.", "He is reading.", "Reading a book.", "He is reading, not writing.", "The boy is reading a book."] },
-{ id: 16, question: "Is the door open or closed?", answers: ["Closed.", "It is closed.", "The door is closed.", "It's not open.", "Closed, next to the racket."] },
-{ id: 17, question: "How many books are in the bookcase?", answers: ["Many.", "A lot of books.", "More than ten.", "There are many colorful books.", "I can see many books on the shelves."] },
-{ id: 18, question: "What color is the teacher’s dress?", answers: ["Green.", "It's green.", "She's wearing a green dress.", "A long green dress.", "The teacher's dress is green."] },
-{ id: 19, question: "Where is the tennis ball?", answers: ["On the floor.", "Next to the racket.", "Near the door.", "It's on the floor, near the wall.", "The ball is next to the tennis racket."] },
-{ id: 20, question: "Tell me about the girl. What is she wearing?", answers: ["A blue dress.", "A dress and a headband.", "She is wearing a blue dress.", "A blue dress and a yellow headband.", "She's wearing a blue dress."] },
-{ id: 20, question: "What color is the door?", answers: ["Grey.", "It is grey.", "The door is grey.", "I can see a big grey door.", "The color of the door is grey."] },
-{ id: 21, question: "Are the children happy or sad?", answers: ["Happy.", "They are happy.", "They look happy.", "The boy is smiling, so he is happy.", "I think the children are happy in school."] },
-{ id: 22, question: "What are the letters on the blackboard?", answers: ["ABC.", "The alphabet.", "I can see letters from A to J.", "The teacher wrote the alphabet on the board.", "They are big white letters."] },
-{ id: 23, question: "Is the boy's hair brown or black?", answers: ["Brown.", "It is brown.", "The boy has brown hair.", "His hair is short and brown.", "The boy's hair is brown, and the girl's hair is orange."] },
-{ id: 24, question: "Where is the red backpack?", answers: ["On the floor.", "Next to the girl.", "It is under the desk.", "The red bag is on the floor, behind the girl.", "I can see it next to the girl's chair."] },
-{ id: 25, question: "Look at the girl's desk. What is on it?", answers: ["A notebook and a pencil.", "A book and a pen.", "There is a notebook and a purple pencil.", "I see a blue notebook on the green desk.", "The girl has a notebook and she is writing."] },
-{ id: 26, question: "Is the teacher's dress long or short?", answers: ["Long.", "It is long.", "She is wearing a long dress.", "The green dress is long.", "It is a long, green dress."] },
-{ id: 27, question: "What is the tennis ball doing?", answers: ["It is on the floor.", "It is next to the racket.", "The ball is near the door.", "I can see a small white ball on the ground.", "The ball is next to the tennis racket."] },
-{ id: 28, question: "How many windows can you see?", answers: ["None.", "Zero.", "I can't see any windows.", "There are no windows in the picture.", "I can see a door, but not a window."] },
-{ id: 29, question: "What is the teacher's hair color?", answers: ["Orange.", "It is orange.", "She has orange hair.", "The teacher's hair is orange or red.", "I can see her orange hair."] },
-{ id: 30, question: "Is the classroom big or small?", answers: ["Big.", "It is big.", "The room looks big.", "It is a big classroom with many books.", "I think it is a big room for the students."] },
+{ id: 1, question: "What is the man doing?", answers: ["Fishing.", "He is fishing.", "The man is catching a fish.", "He is standing by the water and fishing.", "The man has a long fishing rod and a fish."] },
+{ id: 2, question: "How many children can you see?", answers: ["Two.", "There are two.", "I can see two children.", "There is a boy and a girl.", "I see a boy in a red shirt and a girl in yellow."] },
+{ id: 3, question: "What is the woman doing?", answers: ["Drinking.", "She is drinking water.", "The woman is sitting and drinking.", "She is having a drink on the picnic blanket.", "She is sitting on the rug and drinking from a bottle."] },
+{ id: 4, question: "What animal is in the water?", answers: ["A fish.", "It's a fish.", "There is a red fish.", "A big red fish is jumping out of the water.", "I can see a fish on the fishing line."] },
+{ id: 5, question: "What is the boy playing with?", answers: ["A ball.", "A blue ball.", "He is playing with a ball.", "The boy is kicking a big blue ball.", "He is playing football with the girl."] },
+{ id: 6, question: "Look at the picnic blanket. What food can you see?", answers: ["A burger and apples.", "There is a hamburger.", "I see two red apples and a burger.", "They have a hamburger and some fruit.", "I can see a plate with a burger and two apples."] },
+{ id: 7, question: "Where are the water bottles?", answers: ["On the rug.", "They are on the blanket.", "Next to the woman.", "There are three bottles on the picnic mat.", "I can see white bottles next to the food."] },
+{ id: 8, question: "Is it day or night?", answers: ["Day.", "It is day.", "It's daytime.", "It is a sunny day.", "I can see the sun, so it is day."] },
+{ id: 9, question: "What is behind the man?", answers: ["A tree.", "A big tree.", "There is a tree behind him.", "I see a large tree with green leaves.", "A big tree is standing in the middle."] },
+{ id: 10, question: "What is the robot doing?", answers: ["Standing.", "It is standing on the grass.", "I see a blue robot.", "The robot is next to the girl.", "There is a small robot near the children."] },
+{ id: 11, question: "Where is the bridge?", answers: ["Over the water.", "Behind the man.", "There is a wooden bridge.", "The bridge is over the river/lake.", "I can see a small bridge in the background."] },
+{ id: 12, question: "What color is the girl’s t-shirt?", answers: ["Yellow.", "It is yellow.", "Her shirt is yellow.", "The girl is wearing a yellow t-shirt.", "I see a girl in a yellow shirt and pink skirt."] },
+{ id: 13, question: "What is in the big purple bag?", answers: ["Toys.", "Lots of toys.", "I see a plane and a car.", "The bag is full of colorful toys.", "There are toys like a plane and a ball inside."] },
+{ id: 14, question: "Where is the woman sitting?", answers: ["On the grass.", "On the blanket.", "She is sitting on the picnic rug.", "The woman is sitting next to the food.", "She is on the floor, near the purple bag."] },
+{ id: 15, question: "What color is the ball?", answers: ["Blue.", "It is blue.", "A blue ball.", "The ball is big and blue.", "I can see a blue ball on the grass."] },
+{ id: 16, question: "How many apples are there?", answers: ["Two.", "There are two.", "Two red apples.", "I can see two apples on the rug.", "There are two apples next to the burger."] },
+{ id: 17, question: "What is the man wearing on his legs?", answers: ["Trousers.", "Brown trousers.", "He is wearing brown pants.", "The man has long brown trousers.", "I see a man in brown trousers and a grey shirt."] },
+{ id: 18, question: "Is there a sun in the sky?", answers: ["Yes.", "Yes, there is.", "I can see the sun.", "Yes, the sun is yellow and bright.", "The sun is in the top corner of the picture."] },
+{ id: 19, question: "What is next to the tree on the left?", answers: ["A bench.", "A park bench.", "I see a brown bench.", "There is a bench and a lamp.", "There is a wooden bench on the hill."] },
+{ id: 20, question: "Look at the man. Is he happy?", answers: ["Yes.", "Yes, he is.", "He looks happy.", "He is smiling because he has a fish.", "The man is smiling and he is very happy."] },
+{ id: 21, question: "Where is the robot?", answers: ["On the grass.", "Next to the girl.", "Behind the woman.", "The blue robot is on the left.", "It is standing near the children and the blanket."] },
+{ id: 22, question: "What is on the woman’s head?", answers: ["A hat.", "A yellow hat.", "She is wearing a hat.", "There is an orange and yellow hat.", "The woman has a sun hat on her head."] },
+{ id: 23, question: "How many water bottles are there?", answers: ["Three.", "There are three.", "I can see three bottles.", "There are three white bottles on the mat.", "I see three bottles next to the woman."] },
+{ id: 24, question: "What is the girl doing?", answers: ["Playing.", "Running.", "She is playing with the boy.", "The girl is running to the ball.", "She is playing a game on the grass."] },
+{ id: 25, question: "Is the fish big or small?", answers: ["Big.", "It is big.", "The fish is quite big.", "It's a big red fish.", "I think the fish is big and heavy."] },
+{ id: 26, question: "What color is the boy’s shirt?", answers: ["Red.", "Red and blue.", "It is red with a blue stripe.", "His shirt is red and dark blue.", "The boy is wearing a red and blue t-shirt."] },
+{ id: 27, question: "What can you see on the hill?", answers: ["A bench.", "A bench and a lamp.", "I see a light and a seat.", "There is a street lamp and a bench.", "There are trees and a brown bench on the hill."] },
+{ id: 28, question: "What is the man holding?", answers: ["A fishing rod.", "A long pole.", "He is holding a black fishing rod.", "The man has a fishing rod in his hands.", "He is holding the rod to catch the fish."] },
+{ id: 29, question: "Are there any clouds in the sky?", answers: ["No.", "No, there aren't.", "The sky is clear.", "I can't see any clouds.", "No, it is a very sunny day."] },
+{ id: 30, question: "Where are the toys?", answers: ["In the bag.", "Inside the purple bag.", "The toys are in a big bag.", "I can see toys like a car and a plane in the bag.", "There are many toys next to the woman."] },
     ];
 
     let current = 0;

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Cambridge Speaking Practice – Scene 1</title>
+  <title>Cambridge Speaking Practice – Scene 5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="manifest" href="manifest.webmanifest">
@@ -168,7 +168,7 @@
     
     <header class="app-header">
       <div class="header-thumb-container" id="sceneThumb">
-        <img src="scene_1.png" class="header-thumb" alt="Miniatura">
+        <img src="scene_5.png" class="header-thumb" alt="Miniatura">
         <div class="mini-lupa">🔍</div>
       </div>
       <div class="header-text">
@@ -230,38 +230,36 @@
 
   <script>
     const questions = [
-{ id: 1, question: "What is the teacher doing?", answers: ["She's writing.", "She is writing on the board.", "The teacher is writing on the blackboard", "She's writing some letters.", "The teacher is writing the alphabet"] },
-{ id: 2, question: "How many flowers are in the vase?", answers: ["There are four", "Four yellow flowers", "I can see four flowers", "There are four yellow flowers in the blue vase."] },
-{ id: 3, question: "Where is the black handbag?", answers: ["On the table.", "On the desk.", "It's on the teacher's desk.", "The bag is on the table.", "Next to the flowers."] },
-{ id: 4, question: "What color is the boy’s shirt?", answers: ["Green.", "It is green.", "He is wearing a green shirt.", "She is sitting and writing in her notebook.", "She is doing her homework."] },
-{ id: 5, question: "What is the girl doing?", answers: ["Writing.", "She is writing.", "Writing in a notebook.", "The bag is on the table.", "Next to the flowers."] },
-{ id: 6, question: "Where is the red backpack?", answers: ["On the floor.", "Next to the chair.", "Under the table.", "It's next to the girl.", "The red bag is on the floor."] },
-{ id: 7, question: "What color is the teacher's hair?", answers: ["Brown.", "It's brown.", "The teacher's hair is brown.", "She has brown hair.", "Her hair is brown."] },
-{ id: 8, question: "Where is the tennis racket?", answers: ["On the floor.", "Next to the door.", "The tennis racket is on the floor and next to the door.", "It's near the door.", "Behind the desk."] },
-{ id: 9, question: "What letters can you see on the board?", answers: ["A, B, C, D, E, F, G, H, I, J.", "Letters.", "From A to J.", "I can see the alphabet.", "The teacher is writing A, B, C, D, E, F, G, H, I, J."] },
-{ id: 10, question: "Is the teacher wearing glasses?", answers: ["No.", "No, she isn't.", "No she isn't wearing glasses.", "No, she hasn't glasses."] },
-{ id: 11, question: "How many children are there?", answers: ["Two.", "There are two.", "A boy and a girl.", "I can see two children.", "There are two students."] },
-{ id: 12, question: "What color is the rug on the floor?", answers: ["Pink.", "Pink and blue.", "It is pink and blue.", "The rug is pink.", "It's a pink and blue rug."] },
-{ id: 13, question: "Where is the green pencil?", answers: ["On the table.", "On the yellow desk.", "It's next to the bag.", "The pencil is on the table.", "On the teacher's desk."] },
-{ id: 14, question: "What color are the girl’s shoes?", answers: ["Black / Blue (se ven oscuros).", "They are black.", "She has black shoes.", "Her shoes are black.", "Dark blue shoes."] },
-{ id: 15, question: "Is the boy reading or writing?", answers: ["Reading.", "He is reading.", "Reading a book.", "He is reading, not writing.", "The boy is reading a book."] },
-{ id: 16, question: "Is the door open or closed?", answers: ["Closed.", "It is closed.", "The door is closed.", "It's not open.", "Closed, next to the racket."] },
-{ id: 17, question: "How many books are in the bookcase?", answers: ["Many.", "A lot of books.", "More than ten.", "There are many colorful books.", "I can see many books on the shelves."] },
-{ id: 18, question: "What color is the teacher’s dress?", answers: ["Green.", "It's green.", "She's wearing a green dress.", "A long green dress.", "The teacher's dress is green."] },
-{ id: 19, question: "Where is the tennis ball?", answers: ["On the floor.", "Next to the racket.", "Near the door.", "It's on the floor, near the wall.", "The ball is next to the tennis racket."] },
-{ id: 20, question: "Tell me about the girl. What is she wearing?", answers: ["A blue dress.", "A dress and a headband.", "She is wearing a blue dress.", "A blue dress and a yellow headband.", "She's wearing a blue dress."] },
-{ id: 20, question: "What color is the door?", answers: ["Grey.", "It is grey.", "The door is grey.", "I can see a big grey door.", "The color of the door is grey."] },
-{ id: 21, question: "Are the children happy or sad?", answers: ["Happy.", "They are happy.", "They look happy.", "The boy is smiling, so he is happy.", "I think the children are happy in school."] },
-{ id: 22, question: "What are the letters on the blackboard?", answers: ["ABC.", "The alphabet.", "I can see letters from A to J.", "The teacher wrote the alphabet on the board.", "They are big white letters."] },
-{ id: 23, question: "Is the boy's hair brown or black?", answers: ["Brown.", "It is brown.", "The boy has brown hair.", "His hair is short and brown.", "The boy's hair is brown, and the girl's hair is orange."] },
-{ id: 24, question: "Where is the red backpack?", answers: ["On the floor.", "Next to the girl.", "It is under the desk.", "The red bag is on the floor, behind the girl.", "I can see it next to the girl's chair."] },
-{ id: 25, question: "Look at the girl's desk. What is on it?", answers: ["A notebook and a pencil.", "A book and a pen.", "There is a notebook and a purple pencil.", "I see a blue notebook on the green desk.", "The girl has a notebook and she is writing."] },
-{ id: 26, question: "Is the teacher's dress long or short?", answers: ["Long.", "It is long.", "She is wearing a long dress.", "The green dress is long.", "It is a long, green dress."] },
-{ id: 27, question: "What is the tennis ball doing?", answers: ["It is on the floor.", "It is next to the racket.", "The ball is near the door.", "I can see a small white ball on the ground.", "The ball is next to the tennis racket."] },
-{ id: 28, question: "How many windows can you see?", answers: ["None.", "Zero.", "I can't see any windows.", "There are no windows in the picture.", "I can see a door, but not a window."] },
-{ id: 29, question: "What is the teacher's hair color?", answers: ["Orange.", "It is orange.", "She has orange hair.", "The teacher's hair is orange or red.", "I can see her orange hair."] },
-{ id: 30, question: "Is the classroom big or small?", answers: ["Big.", "It is big.", "The room looks big.", "It is a big classroom with many books.", "I think it is a big room for the students."] },
-    ];
+{ id: 1, question: "What is the boy doing?", answers: ["Writing.", "He is writing.", "The boy is doing his homework.", "He is sitting at the desk and writing.", "He is thinking and writing in his notebook."] },
+{ id: 2, question: "What is the girl doing?", answers: ["Playing.", "She is playing with a toy.", "The girl is playing with a green monster.", "She is sitting on the floor and playing.", "She is playing with her friend, the green toy."] },
+{ id: 3, question: "Where is the boy sitting?", answers: ["At the desk.", "On a chair.", "He is sitting at his wooden desk.", "The boy is sitting in front of his notebook.", "He is sitting on a chair next to the bed."] },
+{ id: 4, question: "What is on the boy's desk?", answers: ["A lamp and a book.", "There is a red lamp.", "I see a notebook, a book, and a red lamp.", "There are pens in a yellow cup on the desk.", "I can see a blue book and a red desk lamp."] },
+{ id: 5, question: "Look at the bed. What color is the blanket?", answers: ["Green.", "It is green.", "The bed has a green blanket.", "I see a green cover on the bed.", "The blanket is green and the pillow is white."] },
+{ id: 6, question: "Is the window open or closed?", answers: ["Open.", "It is open.", "The window is open.", "I can see the trees through the open window.", "One part of the window is open to the garden."] },
+{ id: 7, question: "How many planes are on the bookshelf?", answers: ["Two.", "There are two planes.", "I can see two toy planes.", "There is a purple plane and a yellow plane.", "I see two small planes on the wooden shelves."] },
+{ id: 8, question: "What color is the boy's t-shirt?", answers: ["Green.", "It is green.", "His shirt is green and blue.", "The boy is wearing a green t-shirt.", "I see a boy in a green shirt with blue lines."] },
+{ id: 9, question: "Where are the toys?", answers: ["In a basket.", "In a box.", "Inside the toy chest.", "There are toys in a big brown basket.", "I see a doll and a ball in the toy box."] },
+{ id: 10, question: "What color is the monster toy?", answers: ["Green.", "It is green.", "The monster is green.", "I see a big green monster on the floor.", "The toy is green with a long tail."] },
+{ id: 11, question: "What is the boy holding?", answers: ["A pen.", "A blue pen.", "He is holding a pen in his hand.", "The boy is holding a pen to write.", "I can see a blue pen in the boy's hand."] },
+{ id: 12, question: "Is there a lamp in the room?", answers: ["Yes.", "Yes, there is.", "I see a red lamp.", "Yes, a red lamp is on the desk.", "There is a red desk lamp next to the book."] },
+{ id: 13, question: "What can you see outside the window?", answers: ["Trees.", "A green tree.", "I see some green leaves.", "There is a big green tree outside.", "I can see the garden through the window."] },
+{ id: 14, question: "Where is the bookshelf?", answers: ["Next to the bed.", "Behind the boy.", "On the left wall.", "The bookshelf is behind the boy's desk.", "I see a big wooden bookshelf with books and planes."] },
+{ id: 15, question: "What color are the girl's clothes?", answers: ["Red and blue.", "She is wearing blue overalls.", "Her shirt is red and her pants are blue.", "The girl has a red top and blue trousers.", "I see a girl in a red and blue outfit."] },
+{ id: 16, question: "How many pens are in the yellow cup?", answers: ["Three.", "There are three pens.", "I can see three pens: red and blue.", "There are three colorful pens on the desk.", "I see three pens in the yellow pencil holder."] },
+{ id: 17, question: "What is on top of the bookshelf?", answers: ["A plane.", "A red plane.", "I see a big red plane.", "There is a red toy plane on the very top.", "A red plane is at the top of the shelf."] },
+{ id: 18, question: "Look at the girl's hair. What color is it?", answers: ["Brown.", "It is brown.", "She has brown hair.", "The girl has a brown ponytail.", "I see a girl with dark brown hair."] },
+{ id: 19, question: "Where is the green monster?", answers: ["On the floor.", "Next to the girl.", "It is on the pink rug/floor.", "The monster is between the girl and the bed.", "I see the green toy on the ground."] },
+{ id: 20, question: "Is the boy happy or sad?", answers: ["Happy.", "He is happy.", "He looks happy.", "The boy is smiling a little.", "I think he is happy doing his homework."] },
+{ id: 21, question: "What color is the door?", answers: ["Brown.", "Light brown.", "The door is brown.", "I see a light brown door on the right.", "The color of the door is light brown."] },
+{ id: 22, question: "Are there any books in the room?", answers: ["Yes.", "Yes, there are.", "I see books on the shelf.", "There are many colorful books.", "I can see books on the desk and on the shelf."] },
+{ id: 23, question: "What is the girl wearing on her feet?", answers: ["Shoes.", "Blue shoes.", "She is wearing blue and white shoes.", "The girl has sporty blue shoes.", "I see her blue shoes on the floor."] },
+{ id: 24, question: "How many children are in the bedroom?", answers: ["Two.", "There are two.", "I see a boy and a girl.", "There are two children in the picture.", "I can see two kids playing and studying."] },
+{ id: 25, question: "Where is the blue book?", answers: ["On the desk.", "Next to the lamp.", "It is on the left side of the desk.", "The blue book is under the red lamp.", "I see a big blue book on the table."] },
+{ id: 26, question: "Is the boy's hair short or long?", answers: ["Short.", "It is short.", "He has short brown hair.", "The boy's hair is short and brown.", "His hair is brown and very short."] },
+{ id: 27, question: "What is in the toy basket?", answers: ["A doll and a ball.", "A basketball and a toy man.", "I see a doll, a ball, and a toy soldier.", "There are many toys inside the brown basket.", "I can see an orange basketball in the toy box."] },
+{ id: 28, question: "What color is the floor?", answers: ["Pink.", "It is pink.", "The floor is pink.", "I see a large pink carpet or floor.", "The color of the room's floor is pink."] },
+{ id: 29, question: "Is there a pillow on the bed?", answers: ["Yes.", "Yes, there is.", "I see a white pillow.", "There is a white pillow on the bed.", "Yes, the pillow is white and soft."] },
+{ id: 30, question: "What is the girl holding?", answers: ["The monster.", "The toy.", "She is touching the green monster.", "She is holding the monster's arm.", "The girl is playing with the green toy's hand."] },    ];
 
     let current = 0;
     const qText = document.getElementById("questionText");
